@@ -12,12 +12,10 @@ namespace PizzaManagement.Data
         public PizzaContext(DbContextOptions<PizzaContext> options) : base(options)
         {
         }
-
+        public DbSet<Customer> Customers { get; set; }
         public DbSet<Employee> Employees { get; set; }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Employee>().ToTable("Employee");
-        }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
+        public DbSet<OrderItemDetail> OrderItemDetails { get; set; }
     }
 }
